@@ -65,7 +65,7 @@ gulp.task("app:less", function () {
 });
 
 gulp.task("vendor_tasks", ["vendor:js", "vendor:css", "vendor:fonts"]);
-gulp.task("app_tasks", ["app:html", "app:less"]);
+gulp.task("app_tasks", ["app:html", "app:less", "app:index:html"]);
 gulp.task("run", ["vendor_tasks", "app_tasks"]);
 
 gulp.task("clean", function () {

@@ -11,5 +11,6 @@
     "outDir": "../wwwroot/app"
   },
   "exclude": [
+    "node_modules"
   ]
 }
