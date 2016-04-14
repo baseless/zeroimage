@@ -10,6 +10,7 @@ var gulp = require("gulp"),
 
 var paths = { root: "./" + project.webroot + "/" }
 paths.www_lib = paths.root + "lib/";
+paths.www_img = paths.root + "img/";
 paths.www_css = paths.root + "css/";
 paths.www_lib_css = paths.root + "lib/css/";
 paths.www_lib_fonts = paths.root + "lib/fonts/";
@@ -43,6 +44,12 @@ gulp.task("vendor:fonts", function () {
     ]).pipe(gulp.dest(paths.www_lib_fonts));
 });
 
+gulp.task("app:img", function () {
+    return gulp.src([
+        "App/Img/**/*.*"
+    ]).pipe(gulp.dest(paths.www_img));
+});
+
 //Application
 gulp.task("app:html", function () {
     return gulp.src(["App/**/*.html"])
@@ -65,7 +72,7 @@ gulp.task("app:less", function () {
 });
 
 gulp.task("vendor_tasks", ["vendor:js", "vendor:css", "vendor:fonts"]);
-gulp.task("app_tasks", ["app:html", "app:less", "app:index:html"]);
+gulp.task("app_tasks", ["app:html", "app:less", "app:index:html", "app:img"]);
 gulp.task("run", ["vendor_tasks", "app_tasks"]);
 
 gulp.task("clean", function () {
