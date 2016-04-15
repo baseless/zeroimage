@@ -1,4 +1,4 @@
-System.register(["angular2/core", "angular2/http", "./Components/hello-world.component", "./Components/Account/login.component", "./Components/Status/not-found.component", "angular2/router"], function(exports_1, context_1) {
+System.register(["angular2/core", "angular2/http", "./Components/Account/login.component", "./Components/Account/register.component", "./Components/Status/not-found.component", "angular2/router", "./Services/auth.service"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(["angular2/core", "angular2/http", "./Components/hello-world.com
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1, hello_world_component_1, login_component_1, not_found_component_1, router_1;
+    var core_1, http_1, login_component_1, register_component_1, not_found_component_1, router_1, auth_service_1;
     var AppComponent;
     return {
         setters:[
@@ -20,17 +20,20 @@ System.register(["angular2/core", "angular2/http", "./Components/hello-world.com
             function (http_1_1) {
                 http_1 = http_1_1;
             },
-            function (hello_world_component_1_1) {
-                hello_world_component_1 = hello_world_component_1_1;
-            },
             function (login_component_1_1) {
                 login_component_1 = login_component_1_1;
+            },
+            function (register_component_1_1) {
+                register_component_1 = register_component_1_1;
             },
             function (not_found_component_1_1) {
                 not_found_component_1 = not_found_component_1_1;
             },
             function (router_1_1) {
                 router_1 = router_1_1;
+            },
+            function (auth_service_1_1) {
+                auth_service_1 = auth_service_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -43,13 +46,14 @@ System.register(["angular2/core", "angular2/http", "./Components/hello-world.com
                 AppComponent = __decorate([
                     router_1.RouteConfig([
                         { path: "/", name: "Login", component: login_component_1.LoginComponent, useAsDefault: true },
+                        { path: "/register", name: "Register", component: register_component_1.RegisterComponent },
                         { path: "/**", name: "NotFound", component: not_found_component_1.NotFoundComponent }
                     ]),
                     core_1.Component({
                         selector: "zero-image",
                         templateUrl: "app/app.component.html",
-                        directives: [router_1.ROUTER_DIRECTIVES, login_component_1.LoginComponent, not_found_component_1.NotFoundComponent, hello_world_component_1.HelloWorldComponent],
-                        providers: [router_1.ROUTER_PROVIDERS, http_1.HTTP_PROVIDERS, core_1.provide(router_1.LocationStrategy, { useClass: router_1.HashLocationStrategy })]
+                        directives: [router_1.ROUTER_DIRECTIVES, register_component_1.RegisterComponent, login_component_1.LoginComponent, not_found_component_1.NotFoundComponent],
+                        providers: [router_1.ROUTER_PROVIDERS, http_1.HTTP_PROVIDERS, auth_service_1.AuthService, core_1.provide(router_1.LocationStrategy, { useClass: router_1.HashLocationStrategy })]
                     }), 
                     __metadata('design:paramtypes', [router_1.Router])
                 ], AppComponent);
