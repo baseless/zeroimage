@@ -6,6 +6,6 @@ export class AppValidators {
     }
 
     static validatePassword(c: Control) {
-        return c.value.match("(?=^.{8,60}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;:;'?/&gt;.&lt;,])(?!.*\s).*$") ? null : { validatePassword: { valid: false } };
+        return c.value.match("^[a-zA-Z]\w{8,60}$") ? null : { validatePassword: { valid: false } };
     }
 }
